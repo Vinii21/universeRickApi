@@ -5,7 +5,9 @@
 
 .App{
   width: 100%;
-  min-height: 100vh;
+  min-height: 800px;
+  position: relative;
+  background-color: black;
 }
 
 /* Animacion de Loader */
@@ -169,21 +171,53 @@ form .group__input button{
 
 /* estilos del container info location */
 
-.container__info{
+.main{
+  position: relative;
+  top: -50px;
+  z-index: 2;
+}
+
+.container__list{
+  padding: 10px;
+  background-color: #41b3c7;
+  margin: 30px 5px 80px 5px;
+  border-radius: 14px;
+}
+
+.container__list--info{
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   list-style: none;
   font-size: 18px;
-  border: 2px solid;
-  margin: 30px 5px 80px 5px;
+  border: 3px solid;
+  animation: border infinite linear 1s;
   padding: 10px;
+  color: #1b393f;
 }
 
-.container__info li{
+.container__list--info li{
  margin: 5px;
  text-align: center;
+}
+
+@keyframes border {
+  0%{
+    border-radius: 20px;
+  }
+  25%{
+    border-radius: 15px;
+  }
+  50%{
+    border-radius: 10px;
+  }
+  75%{
+    border-radius: 15px;
+  }
+  100%{
+    border-radius: 20px;
+  }
 }
 
 /* Estilos de componente ResidentInfo */
@@ -193,19 +227,23 @@ form .group__input button{
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  padding-bottom: 150px;
 }
 
 .card{
-  border: 1px solid;
+  border: 3px solid #fff;
+  background-color: #41b3c7;
   width: 300px;
   height: 250px;
   position: relative;
+  z-index: 2;
   border-radius: 24px;
   margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #0d4064;
 }
 
 .card .card__title{
@@ -223,6 +261,7 @@ form .group__input button{
   z-index: 1;
   top: -50px;
   left: 30%;
+  border: 3px solid #853247;
 }
 
 .card .card__status{
@@ -232,8 +271,8 @@ form .group__input button{
   right: 20px;
   width: 70px;
   border-radius: 24px;
-  background-color: bisque;
   text-align: center;
+  color: #000;
 }
 
 .card .card__info{
@@ -249,5 +288,140 @@ form .group__input button{
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+/* Estilos de Footer */
+
+footer {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 400px;
+  padding-bottom: 20px;
+  background-image: url("/img/frame2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+footer span{
+  margin-bottom: 10px;
+}
+
+footer img{
+  width: 25px;
+  animation-name: logo;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation: logo 2s linear infinite;
+}
+
+@keyframes logo {
+  0%{
+    transform: scale(1);
+  }
+  20%{
+    transform: scale(0.9);
+  }
+  40%{
+    transform: scale(0.8);
+  }
+  80%{
+    transform: scale(0.9);
+  }
+  100%{
+    transform: scale(1.1);
+  }
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 560px) {
+  .header{
+    height: 400px;
+  }
+  .header .logo{
+    width: 350px;
+  }
+  .header form{
+    width: 70%;
+  }
+  .container__list{
+    margin: 0 auto;
+    margin-bottom: 60px;
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .App{
+    width: 100%;
+    min-height: 1100px;
+    position: relative;
+    background-color: black;
+  }
+  .header{
+    height: 440px;
+  }
+  .header .logo{
+    width: 400px;
+  }
+  .header form{
+    width: 60%;
+  }
+  .card{
+    margin: 5px;
+    margin-bottom: 60px;
+  }
+  footer {
+    height: 460px;
+    background-position: 0px 10px ;
+  }
+}
+@media only screen and (min-width: 940px){
+  .header{
+    height: 300px;
+    flex-direction: row;
+    align-items: flex-start;
+    background-position: 0px -300px;
+  }
+  .header .logo{
+    width: 400px;
+  }
+  .header form{
+    width: 400px;
+    margin-top: 40px;
+  }
+  form .group__input{
+    height: 50px;
+  }
+  .container__list{
+    width: 65%;
+    margin-bottom: 100px;
+  }
+  .container__list--info{
+    padding: 20px;
+  }
+  .container__residents{
+    width: 90%;
+    margin: 0 auto;
+  }
+  footer {
+    height: 500px;
+    background-position: 0px -10px;
+  }
+}
+@media only screen and (min-width: 1080px){
+  .header{
+    height: 500px;
+    flex-direction: row;
+    align-items: center;
+    background-position: 0px -400px;
+  }
 }
 

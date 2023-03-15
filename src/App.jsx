@@ -4,6 +4,7 @@ import Seacrh from './components/Search'
 import Location from './components/Location'
 import logo from "./assets/logo.svg"
 import Loader from './components/Loader'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           data = {data}
         />
       </div>
+      <Footer />
     </div>
   )
 }

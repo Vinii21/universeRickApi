@@ -15,9 +15,9 @@ const ResidentInfo = ({resident}) => {
 
     return (
         <div className="card">
-            <h2 className="card__title">{character?.name}</h2>
+            <h2 className="card__title" style={character?.status === "Alive" ? {backgroundColor: "#bddc4c"} : character?.status === "Dead" ? {backgroundColor:"#dc4c4c"} : {backgroundColor:"#dcbf4c"}}>{character?.name}</h2>
             <img className="card__image" src={character?.image} alt={"Image by " + character?.name} />
-            <span className="card__status">{character?.status}</span>
+            <span className="card__status" style={character?.status === "Alive" ? {backgroundColor: "#bddc4c"} : character?.status === "Dead" ? {backgroundColor:"#dc4c4c"} : {backgroundColor:"#dcbf4c"}}>{character?.status}</span>
             <ul className="card__info">
                 <li><b>Race: </b>{character?.species}</li>
                 <li><b>Origin: </b>{character?.origin?.name}</li>
