@@ -1,6 +1,14 @@
 import ResidentInfo from "./ResidentInfo";
+import Pagination from "./Pagination";
+import { useState } from "react";
 
 const Location = ({data}) => {
+
+    const [characterPerPage, setCharacterPerPage] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
+
+    const lastIndex = currentPage * characterPerPage
+    const firstIndex = lastIndex - characterPerPage
 
     return (
         <>
@@ -18,9 +26,16 @@ const Location = ({data}) => {
                         return(
                             <ResidentInfo key={resident} resident={resident}/>
                         )
-                    })
+                    }).slice(firstIndex, lastIndex)
                 }
+                <Pagination 
+                    characterPerPage={characterPerPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalCharacter={data?.residents?.length}
+                />
             </div>
+
         </>
     );
 }

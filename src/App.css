@@ -21,7 +21,7 @@
   align-items: center;
   background-color: rgba(25, 50, 78, 0.827);
   backdrop-filter: blur(3px);
-  z-index: 2;
+  z-index: 3;
 }
 
 .wrapper {
@@ -148,25 +148,38 @@ form .group__input{
 
 form .group__input input{
   outline: none;
-  border: 3px solid #853247;
+  border: 3px solid #0d4064;
   border-radius: inherit;
   height: 100%;
   width: 100%;
   font-size: 14px;
   padding: 10px;
-  background-color: #ffffff2d;
+  background-color: #75ceefab;
   backdrop-filter: blur(3px);
+  transition: linear all 1s;
 }
+
+form .group__input input:focus {
+  background-color: #ffffffe6;
+  border: 3px solid #000;
+}
+
 
 form .group__input button{
   position: absolute;
   right: 0;
-  border: 3px solid #853247;
+  border: 3px solid #0d4064;
   border-radius: inherit;
   height: 100%;
   width: 100px;
   cursor: pointer;
-  background-color: #ffef66;
+  background-color: #41b3c7;
+  transition: 1s linear all;
+}
+form .group__input button:hover{
+  border: 3px solid #fff;
+  background-color: #257887;
+  color: #fff;
 }
 
 /* estilos del container info location */
@@ -178,8 +191,8 @@ form .group__input button{
 }
 
 .container__list{
-  padding: 10px;
-  background-color: #41b3c7;
+  padding: 5px;
+  background-color: #75cfef;
   margin: 30px 5px 80px 5px;
   border-radius: 14px;
 }
@@ -192,8 +205,9 @@ form .group__input button{
   list-style: none;
   font-size: 18px;
   border: 3px solid;
-  animation: border infinite linear 1s;
+  animation: border infinite linear 1.5s;
   padding: 10px;
+  background-color: #c8e7ed;
   color: #1b393f;
 }
 
@@ -290,6 +304,51 @@ form .group__input button{
   width: 100%;
 }
 
+/* Estilos paginación */
+
+.container__pagination{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+}
+
+.container__pagination ul{
+  list-style: none;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__pagination ul li{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.container__pagination .btn{
+  background-color: #41b3c7;
+  border: 2px solid #8fc741;
+  padding: 2px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container__pagination .is_current{
+  background-color: #75cfef;
+}
+
 /* Estilos de Footer */
 
 footer {
@@ -311,10 +370,20 @@ footer {
 
 footer span{
   margin-bottom: 10px;
+  background-color: #fff;
+  color: #000;
+  padding: 2px;
+  padding-left: 5px;
+  border-radius: 5px;
+  position: relative;
+  left: -10px;
+  z-index: 0;
 }
 
 footer img{
-  width: 25px;
+  position: relative;
+  z-index: 1;
+  width: 35px;
   animation-name: logo;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -367,6 +436,7 @@ footer img{
   }
   .header{
     height: 440px;
+    background-position: 0px -100px;
   }
   .header .logo{
     width: 400px;
@@ -374,9 +444,32 @@ footer img{
   .header form{
     width: 60%;
   }
+  .main{
+    top: -100px;
+  }
   .card{
     margin: 5px;
     margin-bottom: 60px;
+  }
+  .container__pagination{
+    width: 100%;
+    height: 60px;
+  }
+
+  .container__pagination ul{
+    width: 75%;
+  }
+
+  
+  .container__pagination ul li{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .container__pagination .btn{
+    width: 60px;
+    padding: 10px;
+    font-size: 16px;
   }
   footer {
     height: 460px;
@@ -385,10 +478,10 @@ footer img{
 }
 @media only screen and (min-width: 940px){
   .header{
-    height: 300px;
+    height: 440px;
     flex-direction: row;
     align-items: flex-start;
-    background-position: 0px -300px;
+    background-position: 0px -200px;
   }
   .header .logo{
     width: 400px;
@@ -397,11 +490,14 @@ footer img{
     width: 400px;
     margin-top: 40px;
   }
+  .main{
+    top: -150px;
+  }
   form .group__input{
     height: 50px;
   }
   .container__list{
-    width: 65%;
+    width: 67%;
     margin-bottom: 100px;
   }
   .container__list--info{
@@ -412,16 +508,28 @@ footer img{
     margin: 0 auto;
   }
   footer {
-    height: 500px;
+    height: 400px;
     background-position: 0px -10px;
   }
 }
 @media only screen and (min-width: 1080px){
+  .App{
+    width: 100%;
+    min-height: 900px;
+    position: relative;
+    background-color: black;
+  }
   .header{
     height: 500px;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     background-position: 0px -400px;
+  }
+  .container__list{
+    width: 85%;
+  }
+  .main{
+    top: -200px;
   }
 }
 
